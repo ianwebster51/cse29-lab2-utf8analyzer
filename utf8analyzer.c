@@ -49,6 +49,33 @@ int get_length_in_bytes(char str[]) {
     return length;
 }
 
+int num_of_code_points(char str[]){
+        int i=0, total=0;
+        while(str[i]!='\0'){
+                if((str[i]>>6)==0){
+                        //printf("0b0\n");
+                        total++;
+                }
+                else if((str[i]>>4)==0b110){
+                        //printf("0b110\n");
+                        total++;
+                }
+                else if((str[i]>>3)==0b1110){
+                        //printf("0b1110\n");
+                        total++;
+                }
+                else if((str[i]>>2)==0b11110){
+                        //printf("0b11110\n");
+                        total++;
+                }
+
+
+                i++;
+        }
+        //printf("i= %d\n", i);
+        return total;
+}
+
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
