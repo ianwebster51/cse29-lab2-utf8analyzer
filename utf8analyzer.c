@@ -41,6 +41,15 @@ char *uppercase_ascii(const char str[]) {
         return result;
 }
 
+int get_length_in_bytes(char str[]) {
+    int length = 0;
+    while (str[length] != '\0') {
+        length++;
+    }
+    return length;
+}
+
+
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         fprintf(stderr, "Usage: utf8analyzer \"<UTF-8 encoded string>\"\n");
