@@ -27,6 +27,19 @@ uint8_t is_valid_ascii(const char str[]) {
 	return 1;
 }
 
+char *uppercase_ascii(const char str[]) {
+        static char result[100];
+        for (uint8_t i = 0; str[i] != '\0'; ++i) {
+                char c = str[i];
+                if (c >= 'a' && c <= 'z') {
+                        result[i] = c - 32;
+                }else{
+                        result[i] = c;
+                }
+        }
+        result[strlen(str)] = '\0';
+        return result;
+}
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
